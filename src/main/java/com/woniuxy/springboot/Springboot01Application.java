@@ -11,6 +11,7 @@ import org.springframework.context.annotation.ImportResource;
 public class Springboot01Application {
 
 	public static void main(String[] args) {
+		System.out.println("zszszszszszs");
 		SpringApplication.run(Springboot01Application.class, args);
 	}
 
