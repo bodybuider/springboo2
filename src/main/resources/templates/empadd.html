@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/one.css}" type="text/css" />
+</head>
+<body>
+<span class="red">/templates/login.html</span>
+<form th:action="@{/emp}" method="post">
+	编号：<input type="text" name="eid"/><br/>
+	姓名：<input type="text" name="ename"/><br/>
+	入职时间：<input type="text" name="jiondate" /><br/>
+	所属部门：<select name="dep.did">
+				<option th:each="dep:${deps}" th:value="${dep.did}">[[${dep.dname}]]</option>
+		    </select>
+	<input type="submit" value="增加" /><br/>
+</form>
+	
+</body>
+</html>

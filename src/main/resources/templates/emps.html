@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" th:src="@{/js/jquery.js}"></script>
+<script type="text/javascript">
+	$(function(){
+		$(".del").click(function(){
+			$("#delform").attr("action",$(this).attr("deluri")).submit();
+		});
+	});
+</script>
+</head>
+<body>
+/templates/emps.html
+<br/>
+<a th:href="@{/emp}">添加员工信息</a>
+<table>
+	<tr>
+		<th>编号</th>
+		<th>姓名</th>
+		<th>入职时间</th>
+		<th>所属部门</th>
+		<th>操作</th>
+	</tr>
+	<tr th:each="emp:${emps}">
+		<td th:text="${emp.eid}"></td>
+		<td>[[${emp.ename}]]</td>
+		<td th:text="${#dates.format(emp.jiondate,'yyyy-MM-dd ')}"></td>
+		<td>[[${emp.dep.dname}]]</td>
+		<td>
+			<!-- 编辑需要拿到当前emp id -->
+			<a th:href="@{/emp/}+${emp.eid}">编辑</a>
+			<!-- <form th:action="@{/emp/}+${emp.eid}" method="post">
+				<input type="hidden" name="_method" value="delete" />
+				<input type="submit" value="删除"/>
+			</form> -->
+			<a href="#" class="del" th:attr="deluri=@{/emp/}+${emp.eid}" >删除</a>
+		</td>
+	</tr>
+</table>
+<form id="delform" method="post">
+	<input type="hidden" name="_method"  value="delete"/>
+</form>
+</body>
+</html>

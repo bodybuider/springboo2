@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/one.css}" type="text/css" />
+</head>
+<body>
+<span class="red">/templates/login.html</span>
+<form th:action="@{/user/login}" method="post">
+	<input type="text" name="name"/><br/>
+	<input type="text" name="password"/><br/>
+	<input type="submit" name="login"/><br/>
+	
+</form>
+<!-- msg数据为空就不显示这个标签，有就显示 -->
+	<span class="red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}" ></span>
+</body>
+</html>

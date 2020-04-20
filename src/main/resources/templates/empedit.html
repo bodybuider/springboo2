@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" th:href="@{/css/one.css}" type="text/css" />
+</head>
+<body>
+<span class="red">/templates/login.html</span>
+<form th:action="@{/emp}" method="post">
+	<!-- 修改使用put提交 -->
+		<input type="hidden" name="_method" value="put"/>
+	编号：<input type="text" readonly="readonly"  th:value="${emp.eid}"/><br/>
+	姓名：<input type="text" name="ename" th:value="${emp.ename}"/><br/>
+	入职时间：<input type="text" name="jiondate" th:value="${#dates.format(emp.jiondate,'yyyy-MM-dd')}"/><br/>
+	所属部门：<select name="dep.did">
+				<option th:each="dep:${deps}" th:selected="${dep.did==emp.dep.did}"
+				 th:value="${dep.did}">[[${dep.dname}]]</option>
+		    </select>
+	<input type="submit" value="修改" /><br/>
+</form>
+	
+</body>
+</html>

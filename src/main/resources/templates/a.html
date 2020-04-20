@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+/templates/a.html
+<!-- 在标签中嵌套 -->
+<div th:text="${a}"></div>
+<!-- 行类用法 -->
+<div>[[${a}]]</div>
+<div th:text="${heelo}"></div>
+<div th:utext="${hello}"></div>
+<h1>
+	<span th:each="user:${users}" th:text="${user}"></span>
+</h1>
+<h1 th:each="user:${users}" th:text="${user}"></h1>
+<h1 th:each="user:${users}">[[${user}]]</h1>
+
+</body>
+</html>
