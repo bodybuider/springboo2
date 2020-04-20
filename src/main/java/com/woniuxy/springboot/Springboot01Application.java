@@ -12,6 +12,7 @@ public class Springboot01Application {
 
 	public static void main(String[] args) {
 		System.out.println("zszszszszszs");
+		System.out.println("lslslslslsls");
 		SpringApplication.run(Springboot01Application.class, args);
 	}
 
